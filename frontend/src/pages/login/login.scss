@@ -4,95 +4,169 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+  
     .card {
-        width: 60%;
+      width: 60%;
+      display: flex;
+      background-color: rgba(245, 245, 245, 1);
+      border-radius: 8px;
+      min-height: 500px;
+      overflow: hidden;
+  
+      .left {
+        flex: 1;
+        background: linear-gradient(
+            rgba(218, 221, 224, 0.8),
+            rgba(194, 116, 228, 0.5),
+            rgba(17, 183, 233, 0.7)
+          ),
+          url("https://render.fineartamerica.com/images/rendered/default/poster/6/8/break/images/artworkimages/medium/1/rv-dusk-scott-listfield.jpg")
+            center;
+        background-size: cover;
+        padding: 50px;
         display: flex;
-        background-color: rgba(245, 245, 245, 1);
-        border-radius: 8px;
-        min-height: 500px;
-        overflow: hidden;
-
-        .left{
-            flex: 1;
-            background: linear-gradient(
-            rgba(218, 221, 224, 0.8), 
-            rgba(194, 116, 228, 0.5), 
-            rgba(17, 183, 233, 0.7)), url("https://render.fineartamerica.com/images/rendered/default/poster/6/8/break/images/artworkimages/medium/1/rv-dusk-scott-listfield.jpg") center;
-            background-size: contain;  
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            color: rgb(8, 77, 182);
-            
-            h1{
-                font-size: 90px;
-                line-height: 100px;
-            }
-
-            p{
-                color: #ecf0f1;
-                font-size: 14px;
-            }
-
-            span{
-                color: black;
-                font-size: 16px;
-            }
-
-            button{
-                width: 50%;
-                padding: 10px;
-                border: none;
-                color: purple;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 12px;
-            }
+        flex-direction: column;
+        gap: 20px;
+        color: rgb(8, 77, 182);
+  
+        h1 {
+          font-size: 90px;
+          line-height: 100px;
         }
-
-        .right{
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            justify-content: center;
-
-            h1 {
-                font-weight: bold;
-                padding-left: 50px;
-                font-size: 50px;
-            }
-
-            form{
-                padding-left: 50px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                width: 80%;
-                
-                label{
-                    font-weight: bold;
-                }
-
-                input{
-                    border-bottom: 1px solid lightblue;
-                    padding: 5px;
-                }
-
-                  button{
-                    margin-top: 40px;
-                    width: 50%;
-                    padding: 10px;
-                    background-color: #938eef;
-                    color: white;
-                    cursor: pointer;
-                    font-weight: bold;
-                    font-size: 12px;
-                  }
-            }
-            
+  
+        p {
+          color: #ecf0f1;
+          font-size: 14px;
         }
+  
+        span {
+          color: black;
+          font-size: 16px;
+        }
+  
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          color: purple;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+  
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+  
+        h1 {
+          font-weight: bold;
+          padding-left: 50px;
+          font-size: 50px;
+        }
+  
+        form {
+          padding-left: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 80%;
+  
+          label {
+            font-weight: bold;
+          }
+  
+          input {
+            border-bottom: 1px solid lightblue;
+            padding: 5px;
+          }
+  
+          button {
+            margin-top: 40px;
+            width: 50%;
+            padding: 10px;
+            background-color: #938eef;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+          }
+        }
+      }
     }
-}
+  
+    /* Responsive styles for mobile devices */
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column; /* Stack left and right sections vertically */
+        width: 90%; /* Adjust width for smaller screens */
+        min-height: auto; /* Allow dynamic height */
+  
+        .left,
+        .right {
+          flex: none;
+          width: 100%; /* Full width for both sections */
+          padding: 20px; /* Reduce padding */
+          text-align: center; /* Center align text for better readability */
+        }
+  
+        .left {
+          h1 {
+            font-size: 40px; /* Reduce font size for titles */
+            line-height: 50px;
+          }
+  
+          button {
+            width: 80%; /* Larger button for better usability */
+          }
+        }
+  
+        .right {
+          form {
+            padding-left: 0; /* Center form on mobile */
+            width: 100%; /* Take full width */
+  
+            button {
+              width: 80%; /* Larger button for better usability */
+              margin: 20px auto; /* Center the button */
+            }
+          }
+        }
+      }
+    }
+  
+    /* Responsive styles for extra small devices */
+    @media (max-width: 480px) {
+      .card {
+        .left {
+          h1 {
+            font-size: 30px; /* Further reduce font size for small screens */
+          }
+  
+          p {
+            font-size: 12px;
+          }
+        }
+  
+        .right {
+          h1 {
+            font-size: 30px; /* Adjust form title size */
+          }
+  
+          form {
+            gap: 5px; /* Reduce spacing */
+            input {
+              font-size: 14px;
+            }
+            button {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  

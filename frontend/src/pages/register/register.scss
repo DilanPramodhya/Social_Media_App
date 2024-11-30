@@ -4,96 +4,175 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+  
     .card {
-        width: 60%;
+      width: 60%;
+      display: flex;
+      background-color: rgba(245, 245, 245, 1);
+      flex-direction: row-reverse;
+      border-radius: 8px;
+      min-height: 400px;
+      overflow: hidden;
+  
+      .left {
+        flex: 1;
+        background: linear-gradient(
+            rgba(218, 221, 224, 0.8),
+            rgba(194, 116, 228, 0.5),
+            rgba(17, 183, 233, 0.7)
+          ),
+          url("https://render.fineartamerica.com/images/rendered/default/poster/5.5/8/break/images/artworkimages/medium/3/havasu-cascades-inge-johnsson.jpg")
+            center;
+        background-size: cover;
+        padding: 50px;
         display: flex;
-        background-color: rgba(245, 245, 245, 1);
-        flex-direction: row-reverse;
-        border-radius: 8px;
-        min-height: 400px;
-        overflow: hidden;
-
-        .left{
-            flex: 1;
-            background: linear-gradient(
-            rgba(218, 221, 224, 0.8), 
-            rgba(194, 116, 228, 0.5), 
-            rgba(17, 183, 233, 0.7)), url("https://render.fineartamerica.com/images/rendered/default/poster/5.5/8/break/images/artworkimages/medium/3/havasu-cascades-inge-johnsson.jpg") center;
-            background-size: contain;  
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            color: rgb(8, 77, 182);
-            
-            h1{
-                font-size: 90px;
-                line-height: 100px;
-            }
-
-            p{
-                color: #ecf0f1;
-                font-size: 14px;
-            }
-
-            span{
-                color: black;
-                font-size: 16px;
-            }
-
-            button{
-                width: 50%;
-                padding: 10px;
-                border: none;
-                color: purple;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 12px;
-            }
+        flex-direction: column;
+        gap: 20px;
+        color: rgb(8, 77, 182);
+  
+        h1 {
+          font-size: 90px;
+          line-height: 100px;
         }
-
-        .right{
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            justify-content: center;
-
-            h1 {
-                font-weight: bold;
-                padding-left: 50px;
-                font-size: 50px;
-            }
-
-            form{
-                padding-left: 50px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                width: 80%;
-                
-                label{
-                    font-weight: bold;
-                }
-
-                input{
-                    border-bottom: 1px solid lightblue;
-                    padding: 5px;
-                }
-
-                  button{
-                    margin-top: 40px;
-                    width: 50%;
-                    padding: 10px;
-                    background-color: #938eef;
-                    color: white;
-                    cursor: pointer;
-                    font-weight: bold;
-                    font-size: 12px;
-                  }
-            }
-            
+  
+        p {
+          color: #ecf0f1;
+          font-size: 14px;
         }
+  
+        span {
+          color: black;
+          font-size: 16px;
+        }
+  
+        button {
+          width: 50%;
+          padding: 10px;
+          border: none;
+          color: purple;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+  
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        justify-content: center;
+  
+        h1 {
+          font-weight: bold;
+          padding-left: 50px;
+          font-size: 50px;
+        }
+  
+        form {
+          padding-left: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 80%;
+  
+          label {
+            font-weight: bold;
+          }
+  
+          input {
+            border-bottom: 1px solid lightblue;
+            padding: 5px;
+          }
+  
+          button {
+            margin-top: 40px;
+            width: 50%;
+            padding: 10px;
+            background-color: #938eef;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+          }
+        }
+      }
     }
-}
+  
+    /* Responsive Styles for Tablets */
+    @media (max-width: 768px) {
+      .card {
+        flex-direction: column; /* Stack left and right sections */
+        width: 90%; /* Adjust width for smaller screens */
+  
+        .left,
+        .right {
+          flex: none;
+          width: 100%; /* Take full width */
+          padding: 20px; /* Adjust padding */
+          text-align: center; /* Center-align text */
+        }
+  
+        .left {
+          h1 {
+            font-size: 50px; /* Reduce title size */
+            line-height: 60px;
+          }
+  
+          button {
+            width: 80%; /* Larger button */
+          }
+        }
+  
+        .right {
+          h1 {
+            font-size: 40px; /* Adjust title size */
+          }
+  
+          form {
+            padding-left: 0;
+            width: 100%; /* Full width for form */
+  
+            button {
+              width: 80%; /* Adjust button width */
+              margin: 20px auto; /* Center-align button */
+            }
+          }
+        }
+      }
+    }
+  
+    /* Responsive Styles for Mobile Phones */
+    @media (max-width: 480px) {
+      .card {
+        .left {
+          h1 {
+            font-size: 30px; /* Further reduce title size */
+            line-height: 40px;
+          }
+  
+          p {
+            font-size: 12px;
+          }
+        }
+  
+        .right {
+          h1 {
+            font-size: 30px;
+          }
+  
+          form {
+            gap: 5px; /* Reduce spacing between fields */
+            input {
+              font-size: 14px;
+            }
+  
+            button {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
