@@ -97,41 +97,100 @@
         }
       }
     }
+
+    @media (max-width: 1260px) {
+        .card {
+          flex-direction: column; 
+          width: 90%; 
+          min-height: auto; 
+    
+          .left,
+          .right {
+            flex: none;
+            width: 100%; 
+            padding: 20px; 
+            text-align: center; 
+          }
+    
+          .left {
+            h1 {
+              font-size: 40px; 
+              line-height: 50px;
+            }
+    
+            button {
+              width: 40%; 
+            }
+          }
+    
+          .right {
+            form {
+              padding-left: 0; 
+              width: 100%; 
+
+              label {
+                font-weight: bold;
+              }
+      
+              input {
+                border-bottom: 1px solid lightblue;
+                padding: 5px;
+                width: 92%;
+              }
+    
+              button {
+                width: 30%; 
+                margin: 20px auto; 
+              }
+            }
+          }
+        }
+      }
   
     /* Responsive styles for mobile devices */
     @media (max-width: 768px) {
       .card {
-        flex-direction: column; /* Stack left and right sections vertically */
-        width: 90%; /* Adjust width for smaller screens */
-        min-height: auto; /* Allow dynamic height */
+        flex-direction: column; 
+        width: 90%; 
+        min-height: auto; 
   
         .left,
         .right {
           flex: none;
-          width: 100%; /* Full width for both sections */
-          padding: 20px; /* Reduce padding */
-          text-align: center; /* Center align text for better readability */
+          width: 100%; 
+          padding: 20px; 
+          text-align: center; 
         }
   
         .left {
           h1 {
-            font-size: 40px; /* Reduce font size for titles */
+            font-size: 40px; 
             line-height: 50px;
           }
   
           button {
-            width: 80%; /* Larger button for better usability */
+            width: 40%; 
           }
         }
   
         .right {
           form {
-            padding-left: 0; /* Center form on mobile */
-            width: 100%; /* Take full width */
+            padding-left: 0; 
+            width: 100%; 
   
+            label {
+                font-weight: bold;
+              }
+      
+              input {
+                border-bottom: 1px solid lightblue;
+                padding: 5px;
+                width: 92%;
+              }
+
             button {
-              width: 80%; /* Larger button for better usability */
-              margin: 20px auto; /* Center the button */
+              width: 40%; 
+              margin: 20px auto; 
             }
           }
         }
@@ -143,7 +202,7 @@
       .card {
         .left {
           h1 {
-            font-size: 30px; /* Further reduce font size for small screens */
+            font-size: 30px; 
           }
   
           p {
@@ -153,11 +212,11 @@
   
         .right {
           h1 {
-            font-size: 30px; /* Adjust form title size */
+            font-size: 30px; 
           }
   
           form {
-            gap: 5px; /* Reduce spacing */
+            gap: 5px; 
             input {
               font-size: 14px;
             }
