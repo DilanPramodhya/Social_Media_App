@@ -8,7 +8,13 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-const navbar = () => {
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/DarkModeContext";
+import { AuthContext } from "../../context/AuthContext";
+const Navbar = () => {
+  const { toggle, darkMode } = useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="navbar">
       <div className="left">
@@ -16,7 +22,11 @@ const navbar = () => {
           <span>Social Haven</span>
         </Link>
         <CottageOutlinedIcon />
-        <NightsStayOutlinedIcon />
+        {darkMode ? (
+          <WbSunnyOutlinedIcon onClick={toggle} />
+        ) : (
+          <NightsStayOutlinedIcon onClick={toggle} />
+        )}
         <WidgetsOutlinedIcon />
         <div className="search">
           <SearchOutlinedIcon />
@@ -32,11 +42,11 @@ const navbar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL1dsiDH5OKsrj-iNV3qwneo4BaGu2l5-CHw&s"
             alt=""
           />
-          <span>User</span>
+          <span>{currentUser.name}</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default navbar;
+export default Navbar;

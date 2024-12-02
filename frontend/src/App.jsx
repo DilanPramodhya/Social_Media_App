@@ -1,22 +1,32 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext";
+import PropTypes from "prop-types";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import NavBar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftBar/LeftBar";
-import { Outlet, Navigate } from "react-router-dom"; // Ensure correct import
 import RightBar from "./components/rightBar/RightBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/DarkModeContext";
+import "./style.scss";
 
-const currentUser = true;
-
+// Layout Component
 const Layout = () => {
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <div>
+    <div className={darkMode ? "theme-dark" : "theme-light"}>
       <NavBar />
       <div style={{ display: "flex" }}>
         <LeftBar />
-        <div style={{flex: 6}}>
+        <div style={{ flex: 6 }}>
           <Outlet />
         </div>
         <RightBar />
@@ -25,18 +35,24 @@ const Layout = () => {
   );
 };
 
+// ProtectedRoute Component
 const ProtectedRoute = ({ children }) => {
+  const { currentUser } = useContext(AuthContext); // Move useContext here
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
   return children;
 };
 
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired, // Validate the children prop
+};
+
+// App Component
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Wrap routes in the Layout */}
         <Route
           path="/"
           element={
@@ -48,7 +64,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/profile/:id" element={<Profile />} />
         </Route>
-        {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
